@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Chatapp from '../components/ChatApp'
 import SignIn from '../components/SignIn'
 import { auth } from '../lib/firebaseConfig'
-import Head from 'next/head'
+ 
 
 export default function Home() {
 
