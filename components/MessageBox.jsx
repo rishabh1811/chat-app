@@ -11,7 +11,7 @@ export default function MessageBox({user}) {
     dummy.current.scrollIntoView({ behavior: "smooth" });
   }
   useEffect(() => {
-    //  dummy.current.scrollIntoView( { behavior : "smooth"})
+    
     const q = query(colRef, orderBy("createdAt"), limit(15));
     onSnapshot(q, (snapshot) => {
       console.log(snapshot.docs);
@@ -20,7 +20,9 @@ export default function MessageBox({user}) {
         ...doc.data(),
       }));
       setMessages(temp);
+      scrollFn();
     });
+    
   }, []);
 
   console.log(messages);
@@ -36,6 +38,7 @@ export default function MessageBox({user}) {
          return <Message {...message} currentUser={user} />
       })}
       <div ref={dummy}></div>
+     
     </div>
   );
 }
