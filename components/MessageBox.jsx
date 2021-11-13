@@ -12,20 +12,20 @@ export default function MessageBox({user}) {
   }
   useEffect(() => {
     
-    const q = query(colRef, orderBy("createdAt"), limit(15));
+    const q = query(colRef, orderBy("createdAt" , "desc"), limit(30));
     onSnapshot(q, (snapshot) => {
       console.log(snapshot.docs);
       const temp = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setMessages(temp);
+      setMessages(temp.reverse());
       scrollFn();
     });
     
   }, []);
 
-  console.log(messages);
+  
 
   return (
     <div className="flex flex-col items-start gap-3 px-3 pt-3 pb-[70px] bg-[#1B374F]">

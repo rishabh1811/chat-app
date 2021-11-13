@@ -7,7 +7,7 @@ export default function NewMessage({user}) {
     const submitHandler = (e) => {
         e.preventDefault();
          const text = e.currentTarget.text.value;
-         console.log(text)
+         
          const createdAt = new Date().getTime()
         addDoc(colRef, {
             text,
