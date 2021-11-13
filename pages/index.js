@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Chatapp from '../components/ChatApp'
 import SignIn from '../components/SignIn'
 import { auth } from '../lib/firebaseConfig'
+import Head from 'next/head'
 
 export default function Home() {
 
@@ -14,6 +15,9 @@ export default function Home() {
   })
 
   return (<>
+  <Head>
+    <title> Secret Chat App</title>
+  </Head>
     {user ? <Chatapp user={user}/> : <SignIn />}
 
 
