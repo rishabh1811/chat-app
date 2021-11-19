@@ -1,11 +1,12 @@
-import { GoogleAuthProvider, signInWithRedirect } from "@firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "@firebase/auth";
 import React from "react";
 import { auth } from "../lib/firebaseConfig";
 
 export default function SignIn() {
   const signinHandler = async () => {
     const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
+    // signInWithRedirect(auth, provider);
+    signInWithPopup(auth , provider)
   };
 
   return (
